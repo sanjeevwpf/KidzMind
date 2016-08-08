@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace SpellingChunkWPF
+{
+    /// <summary>
+    /// Interaction logic for MainPage.xaml
+    /// </summary>
+    public partial class MainPage : Page
+    {
+        static readonly string[] Columns = new[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "AL", "AM", "AN", "AO", "AP", "AQ", "AR", "AS", "AT", "AU", "AV", "AW", "AX", "AY", "AZ", "BA", "BB", "BC", "BD", "BE", "BF", "BG", "BH" };
+        static readonly Int16 ColumnWidth = 25;
+        public MainPage()
+        {
+            InitializeComponent();
+            AddAlphabet();
+        }
+
+        public void AddAlphabet()
+        {
+            for (int i = 1; i <= 26; i++)
+            {
+                TextBox tb = new TextBox();
+                tb.Name = IndexToColumn(i);
+                tb.Text = IndexToColumn(i);
+                tb.Width = ColumnWidth;
+                tb.SetValue(Canvas.LeftProperty, decimal.Parse(i*20));
+                canvas1.Children.Add(tb);
+            }
+
+        }
+        
+        public static string IndexToColumn(int index)
+        {
+            if (index <= 0)
+                throw new IndexOutOfRangeException("index must be a positive number");
+
+            return Columns[index - 1];
+        }
+    }
+}

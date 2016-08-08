@@ -1,0 +1,35 @@
+﻿<Page x:Class="SpellingChunkWPF.NumericPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SpellingChunkWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Kidzone - Counting">
+    
+    <Grid Name="CountingGrid" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Counting - " Name="txtHeader" Grid.ColumnSpan="11" Grid.Row="0" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+        <Button x:Name="btnCancel" Command="{x:Static NavigationCommands.BrowseBack}" Content="Cancel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" ></Button>
+        <Button x:Name="btnNext" Click="btnNext_Click"  Content="Next" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="6" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
+
+    </Grid>
+</Page>

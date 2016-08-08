@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media;
+
+namespace SpellingChunkWPF
+{
+    public class Alphabet
+    {
+        static readonly Int16 ColumnWidth = 40;
+        const int hiddennumber = 2;
+        readonly int level;
+        static int[] values;
+
+        public Alphabet(int Level)
+        {
+            populateHiddenColumn();
+
+        }
+
+        
+
+        public static WrapPanel AddAlphabet()
+        {
+            WrapPanel canvas1 = new WrapPanel();
+            for (int i = 1; i <= 26; i++)
+            {
+                TextBox tb = Common.GetTextBox();
+                tb.Name = Common.IndexToColumn(i);
+                tb.Width = ColumnWidth;
+                if (ishidden(i) == false)
+                {
+                    tb.IsReadOnly = false;
+                    tb.Text = "";
+                    tb.Background = Brushes.CadetBlue;
+                }
+                else
+                {
+                    tb.IsReadOnly = true;
+                    tb.Text = Common.IndexToColumn(i);
+                }
+                canvas1.Children.Add(tb);
+            }
+            return canvas1;
+        }
+
+        private void populateHiddenColumn()
+        {
+            int hiddencolumns = level * hiddennumber;
+            values = new int[hiddencolumns];
+            int newVal = 0;
+
+            for (int i = 0; i < hiddencolumns; i++)
+            {
+                //bool isExists = false;
+                //while (isExists == false)
+                //{
+                newVal = Common.GetRandomNumber(1, 26);
+                //isExists = values.Contains(newVal);
+                //}
+                values[i] = newVal;
+            }
+        }
+
+        private static bool ishidden(int index)
+        {
+            return !values.Contains(index);
+        }
+    }
+}
